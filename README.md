@@ -1,2 +1,2 @@
-silverstripe-gridpage
+Silverstripe gridpage
 =====================
