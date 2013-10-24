@@ -1,0 +1,5 @@
+en:
+  GridPage:
+    DESCRIPTION: "Display content in rows and columns"
+    SINGULARNAME: "Grid page"
+    PLURALNAME: "Grid pages"

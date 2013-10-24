@@ -1,0 +1,6 @@
+nl:
+  GridPage:
+    DESCRIPTION: "Toon de inhoud in rijen en kolommen"
+    SINGULARNAME: "Grid pagina"
+    PLURALNAME: "Grid paginas"
+      
