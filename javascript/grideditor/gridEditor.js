@@ -331,6 +331,7 @@ GridEditor.BaseGrid = function (holder, minWidthForRows, maxDepth) {
         _this.updateRowSortable();
         _this.updateColumnSortable();
         _this.addToolTips();
+        jQuery(_this).trigger('change');
         return false;
     }
 
@@ -899,6 +900,7 @@ GridEditor.Column = function (owner, width, content, extraclass) {
         }
 
         _this.content = content;
+        jQuery(this.basegrid).trigger('change');
         return false;
     }
     this.showContentEditor = function () {
