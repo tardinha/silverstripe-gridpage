@@ -84,7 +84,7 @@
 .grideditor_column.grideditor_highlight     { background: #76b43e; margin-left: 0; }
 .grideditor_column.grideditor_invalid       { border-color: #FF0000; }
 .grideditor_column.grideditor_valid         { border-color: #76b43e; }
-.grideditor_highlightplaceholder            { background: #FFE7A1; border: 1px solid #ccc; }
+.grideditor_highlightplaceholder            { background: #FFE7A1; border: 1px solid #ccc; padding: 1px 3px; }
 .grideditor_styleselect-holder              { margin: 10px 0; }
 .grideditor_styleselect-holder label        { margin-right: 10px; }
 
