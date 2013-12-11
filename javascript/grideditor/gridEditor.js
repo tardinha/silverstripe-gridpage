@@ -879,17 +879,14 @@ GridEditor.Column = function (owner, width, content, extraclass) {
     }
     this.setContent = function (content) {
         if(GridEditor.cleanContentPreview){
-            var imgPlaceholder = '{'+GridEditor.getText('image')+'}tmp ';
-            var widgetPlaceholder = '{'+GridEditor.getText('widget')+'}tmp ';
-            var cleanContent = content.replace(/<img[^>]*>/g, imgPlaceholder);
-            cleanContent = cleanContent.replace(/\[widget[^>]*]/g, widgetPlaceholder);
+            var imgPlaceholder = 'tmp['+GridEditor.getText('image')+']tmp';
+            var cleanContent = content;
+            cleanContent = cleanContent.replace(/\[widget[^\]]*]/g,'tmp[');
+            cleanContent = cleanContent.replace(/\[\/widget[^\]]*]/g,']tmp');
+            cleanContent = cleanContent.replace(/<img[^>]*>/g, imgPlaceholder);
             cleanContent = jQuery('<div>'+cleanContent+'</div>').text();
-            while(cleanContent.indexOf(imgPlaceholder) != -1){
-                cleanContent = cleanContent.replace(imgPlaceholder, '<span class="'+GridEditor.prefixedCSS('highlightplaceholder')+'">{'+GridEditor.getText('image')+'}</span>');
-            }
-            while(cleanContent.indexOf(widgetPlaceholder) != -1){
-                cleanContent = cleanContent.replace(widgetPlaceholder, '<span class="'+GridEditor.prefixedCSS('highlightplaceholder')+'">{'+GridEditor.getText('widget')+'}</span>');
-            }
+            cleanContent = cleanContent.replace(/tmp\[/g,'<span class="'+GridEditor.prefixedCSS('highlightplaceholder')+'">');
+            cleanContent = cleanContent.replace(/\]tmp/g,'</span>');
         }
         if(GridEditor.maxLengthContentPreview){
             if(cleanContent.length > GridEditor.maxLengthContentPreview){
