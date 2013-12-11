@@ -60,6 +60,10 @@
                 //grid
                 grideditor = new GridEditor.BaseGrid(this, 50, 2);
                 grideditor.loadJSON( $('#Form_EditForm_GridContent').val() );
+                jQuery(grideditor).change(function() {
+				    $('#Form_EditForm_GridContent').val(grideditor.exportJSON());
+				    $('#Form_EditForm_GridContent').trigger('change.changetracker');
+			    });
 
             }
         });
